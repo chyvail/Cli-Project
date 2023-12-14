@@ -15,3 +15,14 @@ Session = sessionmaker(bind=engine)
 
 session = Session()
 
+
+# Category Model
+
+class Category(Base):
+    __tablename__ = "categories"
+    id = Column(Integer(),primary_key=True)
+    category_name = Column(String(150),nullable=False)
+
+    #relationship
+    products = relationship("Product",backref="category")
+    
