@@ -1,6 +1,6 @@
 import click
 from terminaltables import AsciiTable
-from model import Product,Category,session
+from model import Product,Category,Employee,session
 
 @click.group() # decorator used to define a group of commands
 @click.version_option(version="1.0",prog_name="WhareHouse Manager CLI") # run python3 main.py --help or --version to see:
@@ -31,6 +31,32 @@ def add_category(name):
     session.commit()
 
     click.secho("Saved Input to Category Table",fg="yellow")
+
+# ADD EMPLOYEES
+@main.command()
+@click.option('--fname','-fn',prompt=True)
+@click.option('--lname','-ln',prompt=True)
+@click.option('--email','-em',prompt=True)
+
+def add_employee(fname,lname,email):
+    """Add Employees to Database"""
+
+    employee_data = [
+        ['Employee Data','Employee Values'],
+        ['First Name',fname],
+        ['Last Name',lname],
+        ['Email',email]
+    ]
+
+    employee_table = AsciiTable(employee_data)
+
+    click.echo(employee_table.table)
+
+    new_employee = Employee(employee_firstname = fname, employee_lastname = lname, employee_email = email)
+    session.add(new_employee)
+    session.commit()
+
+    click.secho("Saved Input to Employee Table",fg="yellow")
 
 # ADD PRODUCTS
 
