@@ -32,6 +32,21 @@ def add_category(name):
 
     click.secho("Saved Input to Category Table",fg="yellow")
 
+# DISPLAY CATEGORIES
+@main.command() 
+def show_categories():
+    """Shows all available categories in Category Table"""
+    all_categories = session.query(Category).all()
+    click.secho("All Available Categories shown below",fg="yellow")
+
+    category_data = [["Category Id", "Category Name"]]
+    for category in all_categories:
+        category_data.append([category.id, category.category_name])
+
+    category_table = AsciiTable(category_data)
+    
+    click.echo(category_table.table)
+
 # ADD EMPLOYEES
 @main.command()
 @click.option('--fname','-fn',prompt=True)
@@ -57,6 +72,9 @@ def add_employee(fname,lname,email):
     session.commit()
 
     click.secho("Saved Input to Employee Table",fg="yellow")
+
+# DISPLAY EMPLOYEES
+
 
 # ADD PRODUCTS
 

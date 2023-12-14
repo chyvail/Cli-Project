@@ -25,6 +25,9 @@ class Category(Base):
 
     #relationship
     products = relationship("Product",backref="category")
+
+    def __repr__(self):
+        return f"Category id: {self.id} Category name: {self.category_name}"
     
 # Employee Model
 class Employee(Base):
