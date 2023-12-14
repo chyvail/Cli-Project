@@ -37,3 +37,17 @@ class Employee(Base):
     # relationship
     products = relationship("Product",backref="employee")
 
+# Product Model
+class Product(Base):
+    __tablename__ = "products"
+    id = Column(Integer(),primary_key=True)
+    product_name = Column(String(50),nullable=False)
+    product_size = Column(Integer(),nullable=False)
+    product_quantity = Column(Integer(),nullable=False)
+    product_category = Column(Integer,ForeignKey('categories.id'))
+    added_by = Column(Integer(),ForeignKey('employees.id'))
+
+    def __repr__(self):
+        return f" Product id: {self.id}, Product name: {self.product_name}, Product size: {self.product_size}, Product quantity: {self.product_quantity}"
+
+Base.metadata.create_all(engine)
