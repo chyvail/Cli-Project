@@ -101,6 +101,19 @@ def show_employees():
     
     click.echo(employee_table.table)
 
+# UPDATE EMPLOYEES
+@main.command()
+@click.option('--oldemail','-em',prompt=True)
+@click.option('--newemail','-nem',prompt=True)
+
+def update_employee(oldemail,newemail):
+    """Updated Employee Email Address"""
+    email_update = session.query(Employee).filter(Employee.employee_email == oldemail).first()
+    email_update.employee_email = newemail
+    session.commit() 
+
+    click.secho("Email Adress Updated",fg="green")
+
 # ADD PRODUCTS
 
 @main.command()
