@@ -40,6 +40,9 @@ class Employee(Base):
     # relationship
     products = relationship("Product",backref="employee")
 
+    def __repr__(self):
+        return f"Employee id: {self.id}, FirstName: {self.employee_firstname}, LastName: {self.employee_lastname}"
+
 # Product Model
 class Product(Base):
     __tablename__ = "products"

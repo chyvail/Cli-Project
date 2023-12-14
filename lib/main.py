@@ -74,7 +74,19 @@ def add_employee(fname,lname,email):
     click.secho("Saved Input to Employee Table",fg="yellow")
 
 # DISPLAY EMPLOYEES
+@main.command()
+def show_employees():
+    """Show all employees Available"""
+    all_employees = session.query(Employee).all()
+    click.secho("All Available Employees shown below",fg="yellow")
 
+    employee_data = [["Employee Id", "Employee First Name","Employee Last Name","Employee Email"]]
+    for employee in all_employees:
+        employee_data.append([employee.id, employee.employee_firstname,employee.employee_lastname,employee.employee_email])
+
+    employee_table = AsciiTable(employee_data)
+    
+    click.echo(employee_table.table)
 
 # ADD PRODUCTS
 
