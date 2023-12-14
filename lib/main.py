@@ -124,5 +124,21 @@ def add_product(name,size,quantity,category,added_by):
 
     click.secho("Saved Input to Product Table",fg="yellow")
 
+# DISPLAY PRODUCTS
+
+@main.command()
+def show_products():
+    """Show all Products available in Database"""
+    all_products = session.query(Product).all()
+    click.secho("All Available Products shown below",fg="yellow")
+
+    product_data = [["Product Id", "Product Name","Product Size","Product Quantity","Added By"]]
+    for product in all_products:
+        product_data.append([product.id, product.product_name, product.product_size, product.product_quantity, product.product_category])
+
+    product_table = AsciiTable(product_data)
+    
+    click.echo(product_table.table)
+
 if __name__ == "__main__":
     main()
