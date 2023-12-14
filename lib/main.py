@@ -47,6 +47,19 @@ def show_categories():
     
     click.echo(category_table.table)
 
+# UPDATE CATEGORIES
+@main.command()
+@click.option('--originalname','-on',prompt=True)
+@click.option('--newname','-nn',prompt=True)
+
+def update_category(originalname, newname):
+    """Update Category Name"""
+    category_update = session.query(Category).filter(Category.category_name == originalname).first()
+    category_update.category_name = newname
+    session.commit()
+
+    click.secho("Category Name Updated",fg="green")
+
 # ADD EMPLOYEES
 @main.command()
 @click.option('--fname','-fn',prompt=True)
