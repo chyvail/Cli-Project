@@ -166,5 +166,20 @@ def show_products():
     
     click.echo(product_table.table)
 
+# UPDATE PRODUCTS
+
+@main.command()
+@click.option('--productid', '-pn', prompt='Enter Product id')
+@click.option('--newquantity', '-nq', prompt='Enter New Quantity')
+def update_product(productid, newquantity):
+    """Updates Product Quantity"""
+    quantity_update = session.query(Product).filter(Product.id == productid).first()
+    if quantity_update:
+        quantity_update.product_quantity = newquantity
+        session.commit()
+        click.secho("Product Quantity Updated", fg="green")
+    else:
+        click.secho(f"Product with id '{productid}' not found", fg="red")
+
 if __name__ == "__main__":
     main()
