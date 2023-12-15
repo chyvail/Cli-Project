@@ -11,7 +11,7 @@ def main():
 
 # ADD CATEGORY
 @main.command() 
-@click.option('--name','-cn',prompt=True)
+@click.option('--name','-cn',prompt="Category Name")
 
 def add_category(name):
     """Adds Product Categories to Database"""
@@ -49,8 +49,8 @@ def show_categories():
 
 # UPDATE CATEGORIES
 @main.command()
-@click.option('--originalname','-on',prompt=True)
-@click.option('--newname','-nn',prompt=True)
+@click.option('--originalname','-on',prompt="Original Name")
+@click.option('--newname','-nn',prompt="New Name")
 
 def update_category(originalname, newname):
     """Update Category Name"""
@@ -62,7 +62,7 @@ def update_category(originalname, newname):
 
 # DELETE CATEGORY
 @main.command()
-@click.option('--categoryname','-on',prompt=True)
+@click.option('--categoryname','-on',prompt="Category Name")
 def delete_category(categoryname):
     """Deletes Category"""
     category = session.query(Category).filter(Category.category_name == categoryname).first()
@@ -73,9 +73,9 @@ def delete_category(categoryname):
 
 # ADD EMPLOYEES
 @main.command()
-@click.option('--fname','-fn',prompt=True)
-@click.option('--lname','-ln',prompt=True)
-@click.option('--email','-em',prompt=True)
+@click.option('--fname','-fn',prompt="First Name")
+@click.option('--lname','-ln',prompt="Last Name")
+@click.option('--email','-em',prompt="Employee Last Name")
 
 def add_employee(fname,lname,email):
     """Add Employees to Database"""
@@ -114,8 +114,8 @@ def show_employees():
 
 # UPDATE EMPLOYEES
 @main.command()
-@click.option('--oldemail','-em',prompt=True)
-@click.option('--newemail','-nem',prompt=True)
+@click.option('--oldemail','-em',prompt="Old Email")
+@click.option('--newemail','-nem',prompt="New Email")
 
 def update_employee(oldemail,newemail):
     """Updated Employee Email Address"""
@@ -140,11 +140,11 @@ def delete_employee(employee_email):
 # ADD PRODUCTS
 
 @main.command()
-@click.option('--name','-pn',prompt=True)
-@click.option('--size','-ps',prompt=True)
-@click.option('--quantity','-pq',prompt=True)
-@click.option('--category','-pc',prompt=True)
-@click.option('--added_by','-ab',prompt=True)
+@click.option('--name','-pn',prompt="Product Name")
+@click.option('--size','-ps',prompt="Product Size (kgs)")
+@click.option('--quantity','-pq',prompt="Product Quantity (no)")
+@click.option('--category','-pc',prompt="Product Category")
+@click.option('--added_by','-ab',prompt="Added By")
 
 def add_product(name,size,quantity,category,added_by):
     """Adds Products to Database"""
