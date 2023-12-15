@@ -95,11 +95,6 @@ Present features and how to use the `click cli`
    ```bash
    python main.py update_product --productid <product_id> --newquantity <new_quantity>
 
-***
-
-## Contributing
-
-Feel free to contribute by creating issues or submitting pull requests.
 
 
 
