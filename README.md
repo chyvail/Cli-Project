@@ -92,12 +92,12 @@ Present features and how to use the `click cli`
 10. Show Products
 
    ```bash
-   python main.py show_products
+   python3 main.py show_products
 
 11. Update Product
 
    ```bash
-   python main.py update_product --productid <product_id> --newquantity <new_quantity>
+   python3ß main.py update_product --productid <product_id> --newquantity <new_quantity>
 
 
 
