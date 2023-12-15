@@ -75,7 +75,7 @@ def delete_category(categoryname):
 @main.command()
 @click.option('--fname','-fn',prompt="First Name")
 @click.option('--lname','-ln',prompt="Last Name")
-@click.option('--email','-em',prompt="Employee Last Name")
+@click.option('--email','-em',prompt="Employee Email")
 
 def add_employee(fname,lname,email):
     """Add Employees to Database"""

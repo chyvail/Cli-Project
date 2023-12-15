@@ -10,6 +10,10 @@ This is a simple command-line interface (CLI) for managing a warehouse. It allow
 
 - **Python 3.x**: Python is a high-level, general-purpose programming language.
 
+## Entity Relationship Diagram
+
+The ERD diagram was built using `dbdiagram.io` and can be seen through this [link](https://dbdiagram.io/d/Simple-WareHouse-Inventory-System-657c1ef656d8064ca016b86f)
+
 ## Setup Instructions
 
 1. Clone the repository to your local machine:
