@@ -1,4 +1,4 @@
-# WhareHouse CLI Project
+# Warehouse CLI Project
 
 ## Overview
 
