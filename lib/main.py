@@ -60,6 +60,17 @@ def update_category(originalname, newname):
 
     click.secho("Category Name Updated",fg="green")
 
+# DELETE CATEGORY
+@main.command()
+@click.option('--categoryname','-on',prompt=True)
+def delete_category(categoryname):
+    """Deletes Category"""
+    category = session.query(Category).filter(Category.category_name == categoryname).first()
+    session.delete(category)
+    session.commit()
+
+    click.secho(f"Category {categoryname} Deleted",fg="red")
+
 # ADD EMPLOYEES
 @main.command()
 @click.option('--fname','-fn',prompt=True)
