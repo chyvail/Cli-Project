@@ -125,6 +125,18 @@ def update_employee(oldemail,newemail):
 
     click.secho("Email Adress Updated",fg="green")
 
+# DELETE EMPLOYEES
+@main.command()
+@click.option('--employee_email','-em',prompt="Employee Email to Delete")
+
+def delete_employee(employee_email):
+    """Deletes Employee"""
+    email = session.query(Employee).filter(Employee.employee_email==employee_email).first()
+    session.delete(email)
+    session.commit()
+
+    click.secho(f"User with email {employee_email} Deleted",fg="red")
+
 # ADD PRODUCTS
 
 @main.command()
