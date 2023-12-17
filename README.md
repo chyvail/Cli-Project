@@ -89,15 +89,11 @@ Present features and how to use the `click cli`
    ```bash
    python3 main.py add_product --name <product_name> --size <product_size> --quantity <product_quantity> --category <category_id> --added_by <employee_id>
 
-10. Show Products
+## Overview
 
-   ```bash
-   python3 main.py show_products
+Once everything is set up, the cli application should look something like this once the commands are executed
 
-11. Update Product
-
-   ```bash
-   python3ß main.py update_product --productid <product_id> --newquantity <new_quantity>
+<img width="1440" alt="overview" src="https://github.com/chyvail/Cli-Project/assets/25295807/a93c9adb-07f8-458a-ad1a-cad8910b62f1">
 
 
 
